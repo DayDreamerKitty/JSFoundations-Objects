@@ -27,7 +27,7 @@ function getChannelName(channel) {
 function numberOfVideos(channel) {
   return channel.videos.length;
 }
-// console.log(numberOfVideos(channels[0]))
+console.log(numberOfVideos(channels[0]));
 
 /**************************************************************
  * channelHasVideo(videoTitle, channel):
@@ -38,7 +38,9 @@ function numberOfVideos(channel) {
  *
  * BONUS: use iteration method `.some()`
  ****************************************************************/
-function channelHasVideo(videoTitle, channel) {}
+function channelHasVideo(videoTitle, channel) {
+  return channel.videos.some((element) => element.title === videoTitle);
+}
 // console.log(channelHasVideo("The Universal S", channels[0]));
 // console.log(channelHasVideo("The Universal S", channels[1]));
 
@@ -50,7 +52,9 @@ function channelHasVideo(videoTitle, channel) {}
  *
  * BONUS: use iteration method `.find()`
  ****************************************************************/
-function getChannelByName(channelName, channels) {}
+function getChannelByName(channelName, channels) {
+  return channels.find((element) => element.name === channelName);
+}
 
 // console.log(getChannelByName("PowerfulJRE", channels))
 
@@ -63,7 +67,7 @@ function getChannelByName(channelName, channels) {}
  * BONUS: use iteration methods `.find()` and `.some()`
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
-  // Your code here
+  return channels.find((element) => channelHasVideo(videoTitle, element));
 }
 // console.log(getChannelByVideoTitle("The Universal S", channels));
 
@@ -75,7 +79,12 @@ function getChannelByVideoTitle(videoTitle, channels) {
  *
  * Hint: use string method `.includes()` and iteration method `.filter()`
  ****************************************************************/
-function searchChannels(query, channels) {}
+function searchChannels(query, channels) {
+  return channels.filter(
+    (element) =>
+      element.name.includes(query) || element.description.includes(query)
+  );
+}
 // console.log(searchChannels("the", channels))
 
 module.exports = {
